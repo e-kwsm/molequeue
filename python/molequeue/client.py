@@ -245,7 +245,7 @@ class Client:
     if response is None:
       return None
 
-    if 'result' in response and 'success' in response['result'] and response['result']['success'] == True:
+    if 'result' in response and 'success' in response['result'] and response['result']['success']:
       return True
     return False
 
