@@ -25,6 +25,7 @@
 #include <QtWidgets/QApplication>
 
 #include <QtCore/QDateTime>
+#include <QtCore/QRandomGenerator>
 #include <QtCore/QThread>
 #include <QtCore/QTimer>
 
@@ -47,8 +48,7 @@ public:
           QDateTime::currentDateTime().toMSecsSinceEpoch());
     unsigned int seed = static_cast<unsigned int>(
           (threadPtr ^ procId) ^ ((msecs << 16) ^ msecs));
-    qsrand(seed);
-    int randVal = qrand();
+    int randVal = QRandomGenerator{seed}.generate();
 
     return QString("MoleQueue-testing-%1").arg(QString::number(randVal));
   }
