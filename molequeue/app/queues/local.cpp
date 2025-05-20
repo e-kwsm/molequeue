@@ -418,7 +418,7 @@ bool QueueLocal::startJob(IdType moleQueueId)
                           .arg(proc->workingDirectory()),
                           job.moleQueueId());
   m_runningJobs.insert(job.moleQueueId(), proc);
-  proc->start(command + " " + args);
+  proc->start(command, arguments);
 
   return true;
 }
