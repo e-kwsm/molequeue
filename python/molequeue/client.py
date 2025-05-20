@@ -76,8 +76,8 @@ class Job:
 
 class Queue:
   def __init__(self):
-    self.name = None;
-    self.programs = [];
+    self.name = None
+    self.programs = []
 
 class EventLoop(Thread):
   def __init__(self, io_loop):
@@ -274,7 +274,7 @@ class Client:
         if timeout is not None:
           wait_time = timeout - (time.time() - start)
           if wait_time <= 0:
-            break;
+            break
         self._new_response_condition.wait(wait_time)
 
       response = self._request_response_map.pop(packet_id)

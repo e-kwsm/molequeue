@@ -35,12 +35,12 @@ class JsonRpc:
     queues = []
 
     for name, programs in json['result'].iteritems():
-      queue = molequeue.Queue();
+      queue = molequeue.Queue()
       queue.name = name
       queue.programs = programs
       queues.append(queue)
 
-    return queues;
+    return queues
 
   @staticmethod
   def object_to_json_params(job):
