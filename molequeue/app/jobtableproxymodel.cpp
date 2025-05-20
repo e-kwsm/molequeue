@@ -202,8 +202,8 @@ bool JobTableProxyModel::filterAcceptsRow(int sourceRow,
   }
 
   if (!m_filterString.isEmpty()) {
-    QStringList filterTerms = m_filterString.split(QRegExp("\\s+"),
-                                                   QString::SkipEmptyParts);
+    QStringList filterTerms = m_filterString.split(QRegularExpression("\\s+"),
+                                                   Qt::SkipEmptyParts);
     foreach (QString fullTerm, filterTerms) {
       bool termMatch = false;
       bool isNegated = false;

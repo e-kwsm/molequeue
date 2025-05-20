@@ -608,7 +608,7 @@ QString OpenWithManagerDialog::searchSystemPathForFile(const QString &exec)
   if (!env.contains("PATH"))
     return result;
 
-  static QRegExp pathSplitter = QRegExp(
+  static QRegularExpression pathSplitter = QRegularExpression(
 #ifdef Q_OS_WIN32
         ";"
 #else // WIN32
@@ -616,7 +616,7 @@ QString OpenWithManagerDialog::searchSystemPathForFile(const QString &exec)
 #endif// WIN32
         );
   QStringList paths =
-      env.value("PATH").split(pathSplitter, QString::SkipEmptyParts);
+      env.value("PATH").split(pathSplitter, Qt::SkipEmptyParts);
 
   foreach (const QString &path, paths) {
     QFileInfo info(QUrl::fromLocalFile(path + "/" + exec).toLocalFile());
