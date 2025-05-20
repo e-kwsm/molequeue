@@ -1,7 +1,7 @@
-find_package(PythonInterp REQUIRED)
+find_package(Python REQUIRED COMPONENTS Interpreter)
 
-if(PYTHONINTERP_FOUND)
-  execute_process(COMMAND ${PYTHON_EXECUTABLE} -c
+if(Python_Interpreter_FOUND)
+  execute_process(COMMAND ${Python_EXECUTABLE} -c
     "from distutils.sysconfig import get_python_lib; print(get_python_lib())"
     OUTPUT_VARIABLE PYTHON_PACKAGES_DIR
     OUTPUT_STRIP_TRAILING_WHITESPACE)
