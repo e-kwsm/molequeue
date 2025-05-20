@@ -13,7 +13,7 @@ class JsonRpc:
     request['jsonrpc'] = "2.0"
     request['id'] = packet_id
     request['method'] = method
-    if parameters != None:
+    if parameters is not None:
       request['params'] = parameters
 
     return json.dumps(request)

@@ -15,7 +15,7 @@ def run_test():
   client.connect_to_server(socketname)
   res = client._send_rpc_kill_request(5)
   client.disconnect()
-  if res == None:
+  if res is None:
     raise Exception("Connection timed out!")
   if res != True:
     return 1

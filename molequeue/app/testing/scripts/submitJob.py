@@ -45,7 +45,7 @@ def run_test():
     job.popup_on_state_change = False
     molequeue_id = client.submit_job(job, 30)
     molequeue_ids.append(molequeue_id)
-    if molequeue_id == None:
+    if molequeue_id is None:
       # Timeout
       client.disconnect()
       raise Exception("Connection timed out!")

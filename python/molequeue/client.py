@@ -155,7 +155,7 @@ class Client:
     response = self._wait_for_response(packet_id, timeout)
 
     # Timeout
-    if response == None:
+    if response is None:
       return None
 
     queues = JsonRpc.json_to_queues(response)
@@ -174,7 +174,7 @@ class Client:
     response = self._wait_for_response(packet_id, timeout)
 
     # Timeout
-    if response == None:
+    if response is None:
       return None
 
     # if we an error occurred then throw an exception
@@ -204,7 +204,7 @@ class Client:
     response = self._wait_for_response(packet_id, timeout)
 
     # Timeout
-    if response == None:
+    if response is None:
       return None
 
     # if we an error occurred then throw an exception
@@ -242,7 +242,7 @@ class Client:
     response = self._wait_for_response(packet_id, timeout)
 
     # Timeout
-    if response == None:
+    if response is None:
       return None
 
     if 'result' in response and 'success' in response['result'] and response['result']['success'] == True:
@@ -267,11 +267,11 @@ class Client:
       start = time.time()
       # wait for the response to come in
       self._new_response_condition.acquire()
-      while self._request_response_map[packet_id] == None:
+      while self._request_response_map[packet_id] is None:
         # need to set a wait time otherwise the wait can't be interrupted
         # See http://bugs.python.org/issue8844
         wait_time = sys.maxint
-        if timeout != None:
+        if timeout is not None:
           wait_time = timeout - (time.time() - start)
           if wait_time <= 0:
             break;
