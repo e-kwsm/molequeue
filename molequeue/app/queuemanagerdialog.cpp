@@ -206,7 +206,7 @@ QList<int> QueueManagerDialog::getSelectedRows()
       rows << ind.row();
   }
 
-  qSort(rows);
+  std::sort(rows.begin(), rows.end());
   return rows;
 }
 
