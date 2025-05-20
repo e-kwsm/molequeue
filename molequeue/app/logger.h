@@ -17,6 +17,7 @@
 #ifndef MOLEQUEUE_LOGGER_H
 #define MOLEQUEUE_LOGGER_H
 
+#include <vector>
 #include <QtCore/QObject>
 
 #include "logentry.h"
@@ -192,7 +193,7 @@ public slots:
   }
 
   /// @return A list of all log entries.
-  static QLinkedList<LogEntry> log() { return Logger::getInstance()->m_log; }
+  static std::vector<LogEntry> log() { return Logger::getInstance()->m_log; }
 
   /// @param max The maximum number of entries the Logger will track.
   /// Default: 1000
@@ -245,7 +246,7 @@ private:
   bool m_silenceNewErrors;
 
   QFile *m_logFile;
-  QLinkedList<LogEntry> m_log;
+  std::vector<LogEntry> m_log;
 };
 
 } // namespace MoleQueue
