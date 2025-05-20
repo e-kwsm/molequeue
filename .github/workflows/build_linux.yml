@@ -1,0 +1,22 @@
+name: build (linux)
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+    - uses: actions/checkout@v6
+    - name: install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get -qq install qtbase5-dev
+    - name: configure
+      run: |
+        cmake -S . -B build -D ENABLE_TESTING=ON
+    - name: build
+      run: |
+        cmake --build build
+    - name: test
+      run: |
+        ctest --test-dir build --output-on-failure
