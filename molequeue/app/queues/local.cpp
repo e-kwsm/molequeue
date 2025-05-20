@@ -199,7 +199,7 @@ void QueueLocal::processStarted()
 #ifdef _WIN32
   queueId = static_cast<IdType>(process->pid()->dwProcessId);
 #else // WIN32
-  queueId = static_cast<IdType>(process->pid());
+  queueId = static_cast<IdType>(process->processId());
 #endif // WIN32
 
   // Get pointer to jobmanager to lookup job
