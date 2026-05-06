@@ -8,8 +8,8 @@ set(MoleQueue_TESTDATA_DIR
 set(MoleQueue_TESTSCRIPT_DIR
   "${MoleQueue_SOURCE_DIR}/molequeue/app/testing/scripts/")
 set(MoleQueue_TESTEXEC_DIR "${MoleQueue_BINARY_DIR}/bin/")
-if(PYTHON_EXECUTABLE)
-  set(MoleQueue_PYTHON_EXECUTABLE "${PYTHON_EXECUTABLE}")
+if(Python_EXECUTABLE)
+  set(MoleQueue_PYTHON_EXECUTABLE "${Python_EXECUTABLE}")
 endif()
 configure_file(molequeuetestconfig.h.in molequeuetestconfig.h)
 

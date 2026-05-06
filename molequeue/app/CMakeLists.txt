@@ -15,8 +15,7 @@ else()
   set(MoleQueue_LIB_DIR "${INSTALL_LIBRARY_DIR}")
 endif()
 
-# Find a python 2.x interpreter.
-find_package(PythonInterp 2 QUIET)
+find_package(Python QUIET COMPONENTS Interpreter)
 
 include(GenerateExportHeader)
 
